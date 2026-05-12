@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ style.css
+ script.js
+
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Cartoonifier</title>
+
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  
+  <h1> AI Cartoonifier</h1>
+  <p class="subtitle">Upload a photo, pick a style, get cartoon art!</p>
+
+  
+  <div id="uploadBox" onclick="document.getElementById('fileInput').click()">
+    <div class="upload-icon"></div>
+    <p>Click here to upload your photo</p>
+    <p class="small-text">Supports JPG, PNG, WEBP</p>
+
+    
+    <input
+      type="file"
+      id="fileInput"
+      accept="image/*"
+      hidden
+      onchange="loadImage(event)"
+    />
+  </div>
+
+  
+  <div class="controls">
+    <label>Choose a Style:</label>
+    <select id="styleSelect">
+      <option value="classic"> Classic — bold color blocks</option>
+      <option value="soft"> Soft — warm painterly look</option>
+      <option value="sketch"> Sketch — black and white</option>
+      <option value="vivid">Vivid — high contrast pop art</option>
+      <option value="anime"> Anime — flat cel shading</option>
+    </select>
+  </div>
+
+  
+  <button id="cartoonBtn" onclick="cartoonify()" disabled>
+     Cartoonify!
+  </button>
+
+
+  <p id="status">Upload an image to get started.</p>
+
+  
+  <button id="downloadBtn" onclick="downloadCartoon()">
+    ⬇ Download My Cartoon
+  </button>
+
+  
+  <div class="canvas-area">
+
+  
+    <div class="canvas-box" id="originalBox">
+      <label>Original Photo</label>
+      <!-- Canvas = drawing board where we show the image -->
+      <canvas id="originalCanvas"></canvas>
+    </div>
+
+
+    <div class="canvas-box" id="cartoonBox">
+      <label>Cartoon Result</label>
+      <canvas id="cartoonCanvas"></canvas>
+    </div>
+
+  </div>
+
+  
+  <script src="script.js"></script>
+
+</body>
+</html>

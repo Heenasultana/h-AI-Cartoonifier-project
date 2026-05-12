@@ -1,0 +1,190 @@
+/*
+  FILE: style.css
+  WHAT IT DOES: Makes the page look good.
+  This file only handles APPEARANCE — colors, sizes, fonts.
+  No logic here. Logic is in script.js
+*/
+
+
+/* ============================================================
+   BODY — styles the entire page background and font
+   ============================================================ */
+body {
+  font-family: Arial, sans-serif;   /* clean readable font */
+  background-color: #1a1a2e;        /* dark navy background */
+  color: white;                     /* all text is white by default */
+  text-align: center;               /* everything centered */
+  padding: 20px;
+  margin: 0;                        /* removes default browser margin */
+}
+
+
+/* ============================================================
+   HEADING — the big title at the top
+   ============================================================ */
+h1 {
+  font-size: 2.5rem;        /* large title */
+  color: #f5c518;           /* yellow color */
+  margin-bottom: 5px;
+}
+
+/* Subtitle below the heading */
+.subtitle {
+  color: #aaaaaa;           /* light grey */
+  margin-bottom: 25px;
+  font-size: 1rem;
+}
+
+
+/* ============================================================
+   UPLOAD BOX — the dashed click area for uploading
+   ============================================================ */
+#uploadBox {
+  border: 3px dashed #f5c518;   /* yellow dashed border */
+  border-radius: 12px;          /* rounded corners */
+  padding: 30px;
+  cursor: pointer;              /* shows hand cursor on hover */
+  display: inline-block;
+  width: 300px;
+  margin-bottom: 20px;
+  transition: background 0.2s; /* smooth background change */
+}
+
+/* When you hover over the upload box */
+#uploadBox:hover {
+  background-color: #2a2a4e;   /* slightly lighter on hover */
+}
+
+/* The emoji icon inside the upload box */
+.upload-icon {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+
+/* Small grey text inside the upload box */
+.small-text {
+  color: #aaaaaa;
+  font-size: 0.85rem;
+}
+
+
+/* ============================================================
+   CONTROLS — the row with the dropdown selector
+   ============================================================ */
+.controls {
+  margin: 15px 0;
+}
+
+.controls label {
+  color: #aaaaaa;
+  margin-right: 10px;
+  font-size: 1rem;
+}
+
+/* The dropdown menu */
+select {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid #f5c518;   /* yellow border */
+  background-color: #2a2a4e;   /* dark background */
+  color: white;
+  cursor: pointer;
+}
+
+
+/* ============================================================
+   CARTOONIFY BUTTON — main action button
+   ============================================================ */
+#cartoonBtn {
+  padding: 12px 35px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: #f5c518;   /* yellow background */
+  color: #1a1a2e;              /* dark text on yellow */
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 10px;
+  transition: transform 0.1s;  /* smooth scale animation */
+}
+
+/* Button grows slightly when hovered */
+#cartoonBtn:hover {
+  transform: scale(1.05);
+}
+
+/* When button is disabled (no image loaded yet) */
+#cartoonBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+
+/* ============================================================
+   STATUS TEXT — the message under the button
+   ============================================================ */
+#status {
+  color: #aaaaaa;
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+
+/* ============================================================
+   DOWNLOAD BUTTON — shown after cartoon is created
+   ============================================================ */
+#downloadBtn {
+  padding: 10px 25px;
+  background-color: #27ae60;   /* green */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 10px;
+  display: none;               /* HIDDEN by default */
+  transition: transform 0.1s;
+}
+
+#downloadBtn:hover {
+  transform: scale(1.05);
+}
+
+
+/* ============================================================
+   CANVAS AREA — the side-by-side image display section
+   ============================================================ */
+
+/* Wrapper: puts Original and Cartoon side by side */
+.canvas-area {
+  display: flex;              /* side by side layout */
+  justify-content: center;   /* centered on the page */
+  gap: 30px;                 /* space between the two boxes */
+  flex-wrap: wrap;           /* stacks vertically on small screens */
+  margin-top: 25px;
+}
+
+/* Each individual box (Original or Cartoon) */
+.canvas-box {
+  background-color: #2a2a4e;   /* dark box background */
+  border-radius: 12px;
+  padding: 15px;
+  display: none;               /* HIDDEN by default, shown by JavaScript */
+}
+
+/* Label text above each canvas ("Original Photo", "Cartoon Result") */
+.canvas-box label {
+  display: block;
+  color: #f5c518;             /* yellow label */
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+/* The actual drawing canvas element */
+canvas {
+  border-radius: 8px;
+  max-width: 320px;           /* max width so it fits on screen */
+  display: block;
+}
